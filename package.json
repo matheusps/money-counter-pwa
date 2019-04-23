@@ -3,10 +3,6 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
-    "@types/jest": "24.0.11",
-    "@types/node": "11.13.7",
-    "@types/react": "16.8.14",
-    "@types/react-dom": "16.8.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.0",
@@ -16,7 +12,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test:coverage": "yarn test --collectCoverage",
+    "codecov": "yarn test:coverage && codecov -f coverage/*.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,5 +30,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.13.7",
+    "@types/react": "^16.8.14",
+    "@types/react-dom": "^16.8.4",
+    "codecov": "^3.3.0"
   }
 }
