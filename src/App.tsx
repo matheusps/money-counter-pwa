@@ -18,7 +18,7 @@ const App: FC = () => {
       <Container>
         <Emoji symbol="💸" />
         <Message>Some Message</Message>
-        <Button />
+        <Button>Send</Button>
       </Container>
     </Theme>
   )
