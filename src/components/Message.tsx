@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
+import styled from 'styled-components'
 
-const Message: FC = () => {
-  return <div>Message</div>
-}
+const Message = styled.h2`
+  color: ${props => props.theme.dark};
+`
 
 export default Message
