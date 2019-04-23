@@ -1,5 +1,8 @@
 ## Money counter 💸
 
+[![CircleCI](https://circleci.com/gh/matheusps/money-counter-pwa.svg?style=svg)](https://circleci.com/gh/matheusps/money-counter-pwa)
+[![codecov](https://codecov.io/gh/matheusps/money-counter-pwa/branch/master/graph/badge.svg)](https://codecov.io/gh/matheusps/money-counter-pwa)
+
 ### Cheatset 🤓
 
 ```
