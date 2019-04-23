@@ -2,9 +2,11 @@ import React, { FC } from 'react'
 
 import Theme from './components/Theme'
 import Container from './components/Container'
-import Emoji from './components/Emoji'
+import Image from './components/Image'
 import Message from './components/Message'
 import Button from './components/Button'
+
+import cameraImg from './assets/img/camera.png'
 
 const theme = {
   base: '#FEFEFE',
@@ -16,8 +18,8 @@ const App: FC = () => {
   return (
     <Theme theme={theme}>
       <Container>
-        <Emoji symbol="💸" />
-        <Message>Some Message</Message>
+        <Image src={cameraImg} />
+        <Message>Take or send a picture</Message>
         <Button>Send</Button>
       </Container>
     </Theme>
