@@ -16,7 +16,7 @@ const App: FC = () => {
   return (
     <Theme theme={theme}>
       <Container>
-        <Emoji />
+        <Emoji symbol="💸" />
         <Message>Some Message</Message>
         <Button />
       </Container>
