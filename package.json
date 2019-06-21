@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
+    "darkside-ui": "^0.0.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.0",
@@ -13,9 +14,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "test:coverage": "yarn test --collectCoverage",
-    "codecov": "yarn test:coverage && codecov -f coverage/*.json"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,7 +37,6 @@
     "@types/react": "^16.8.14",
     "@types/react-dom": "^16.8.4",
     "@types/styled-components": "^4.1.14",
-    "codecov": "^3.3.0",
     "jest-styled-components": "^6.3.1",
     "react-testing-library": "^6.1.2"
   }

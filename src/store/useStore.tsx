@@ -1,10 +1,10 @@
 import { useReducer } from 'react'
 import { actions, Action, reset, loading, success, fail } from './actions'
-import { messages, images, btnTexts } from './data'
+import { messages, emojis, btnTexts } from './data'
 
 const initialState = {
   message: messages.static,
-  image: images.static,
+  emoji: emojis.static,
   btnText: btnTexts.static,
   btnAction: loading,
 }
@@ -17,7 +17,7 @@ const reducer = (state: State, action: Action) => {
       return {
         ...state,
         message: messages.static,
-        image: images.static,
+        emoji: emojis.static,
         btnText: btnTexts.static,
         btnAction: loading,
       }
@@ -25,7 +25,7 @@ const reducer = (state: State, action: Action) => {
       return {
         ...state,
         message: messages.loading,
-        image: images.loading,
+        emoji: emojis.loading,
         btnText: btnTexts.loading,
         btnAction: success,
       }
@@ -33,7 +33,7 @@ const reducer = (state: State, action: Action) => {
       return {
         ...state,
         message: messages.success,
-        image: images.success,
+        emoji: emojis.success,
         btnText: btnTexts.success,
         btnAction: fail,
       }
@@ -41,7 +41,7 @@ const reducer = (state: State, action: Action) => {
       return {
         ...state,
         message: messages.fail,
-        image: images.fail,
+        emoji: emojis.fail,
         btnText: btnTexts.fail,
         btnAction: reset,
       }
