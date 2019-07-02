@@ -9,7 +9,14 @@ import {
 } from 'darkside-ui'
 
 import useStore from './store/useStore'
-const URL = 'http://localhost:5000/predict'
+import { loading, fail, success } from './store/actions'
+const URL = 'http://10.144.141.117:5000/predict?model=DATA&format=b64'
+const BRL_DICT = {
+  '0': 0.05,
+  '1': 0.1,
+  '2': 0.5,
+  '3': 1.0,
+}
 
 const App: FC = () => {
   const [state, dispatch] = useStore()
@@ -39,18 +46,28 @@ const App: FC = () => {
   }
 
   const sendPicture = () => {
+    dispatch(loading)
     fetch(URL, {
       method: 'POST',
+      mode: 'cors',
       headers: {
         Accept: 'application/json',
       },
       body: image,
     })
       .then(response => response.json())
-      .then(responseJson => {
-        console.log(responseJson)
+      .then(data => {
+        const result = data.success
+          ? data.coins
+              .replace('[', '')
+              .replace(']', '')
+              .split(' ')
+              .map(clfic => BRL_DICT[clfic])
+              .reduce((pv, crr) => pv + crr, 0)
+          : 0
+        dispatch(success(result))
       })
-      .catch(e => console.log(e))
+      .catch(() => dispatch(fail))
   }
 
   return (
@@ -67,7 +84,12 @@ const App: FC = () => {
           {state.message}
         </Heading>
         <Input type="file" onChange={handleFileChange} />
-        <Button size="xl" onClick={() => sendPicture()} full>
+        <Button
+          size="xl"
+          onClick={() => sendPicture()}
+          full
+          disabled={state.btnDisabled}
+        >
           {state.btnText}
         </Button>
       </Surface>

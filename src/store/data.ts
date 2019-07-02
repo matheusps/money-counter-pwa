@@ -14,7 +14,7 @@ export const emojis = {
 
 export const btnTexts = {
   static: 'Send',
-  loading: 'Send',
+  loading: 'Wait',
   success: 'Try again',
   fail: 'Try again',
 }
