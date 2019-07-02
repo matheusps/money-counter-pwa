@@ -9,7 +9,7 @@ import {
 } from 'darkside-ui'
 
 import useStore from './store/useStore'
-const URL = 'http://localhost:5000/predict'
+const URL = 'http://10.144.141.117:5000/predict?model=DATA&format=b64'
 
 const App: FC = () => {
   const [state, dispatch] = useStore()
@@ -41,10 +41,11 @@ const App: FC = () => {
   const sendPicture = () => {
     fetch(URL, {
       method: 'POST',
+      mode: "cors",
       headers: {
         Accept: 'application/json',
       },
-      body: image,
+      body:image
     })
       .then(response => response.json())
       .then(responseJson => {
