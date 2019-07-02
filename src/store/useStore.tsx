@@ -7,6 +7,7 @@ const initialState = {
   emoji: emojis.static,
   btnText: btnTexts.static,
   btnAction: loading,
+  btnDisabled: false,
 }
 
 type State = typeof initialState
@@ -20,6 +21,7 @@ const reducer = (state: State, action: Action) => {
         emoji: emojis.static,
         btnText: btnTexts.static,
         btnAction: loading,
+        btnDisabled: false,
       }
     case actions.loading:
       return {
@@ -28,14 +30,16 @@ const reducer = (state: State, action: Action) => {
         emoji: emojis.loading,
         btnText: btnTexts.loading,
         btnAction: success,
+        btnDisabled: true,
       }
     case actions.success:
       return {
         ...state,
-        message: messages.success,
+        message: `${messages.success} ${action.payload}`,
         emoji: emojis.success,
         btnText: btnTexts.success,
         btnAction: fail,
+        btnDisabled: false,
       }
     case actions.fail:
       return {
@@ -44,6 +48,7 @@ const reducer = (state: State, action: Action) => {
         emoji: emojis.fail,
         btnText: btnTexts.fail,
         btnAction: reset,
+        btnDisabled: false,
       }
 
     default:
@@ -51,5 +56,6 @@ const reducer = (state: State, action: Action) => {
   }
 }
 
+//@ts-ignore
 const useStore = () => useReducer(reducer, initialState)
 export default useStore
